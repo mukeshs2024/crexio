@@ -31,7 +31,7 @@ import { playerService } from "../services/player.service";
 import { setupAnalyticsRoutes } from "./api/analytics";
 
 
-const PORT = parseInt(process.env.PORT || "3001", 10);
+const PORT = Number(process.env.PORT) || 3001;
 const UPLOADS_DIR = path.join(process.cwd(), "data", "uploads");
 
 if (!fs.existsSync(UPLOADS_DIR)) {
@@ -422,7 +422,7 @@ io.on("connection", (socket: Socket) => {
 // ============================================================
 restoreRooms().then(() => {
   httpServer.listen(PORT, () => {
-    console.log(`[Server] Socket.io server listening on port ${PORT}`);
+    console.log(`🚀 Server running on port ${PORT}`);
   });
 });
 
