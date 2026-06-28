@@ -6,12 +6,12 @@ export const metadata: Metadata = {
   title: "Cricket Mock Auction Platform",
   description: "The ultimate Cricket Mock Auction Platform. Build your dream cricket team, manage your purse, and outbid opponents in our real-time simulator.",
   alternates: {
-    canonical: "https://crexio.app/cricket-mock-auction",
+    canonical: "https://crexio-18.onrender.com/cricket-mock-auction",
   },
   openGraph: {
     title: "Cricket Mock Auction Platform | Crexio",
     description: "The ultimate Cricket Mock Auction Platform. Build your dream cricket team, manage your purse, and outbid opponents in our real-time simulator.",
-    url: "https://crexio.app/cricket-mock-auction",
+    url: "https://crexio-18.onrender.com/cricket-mock-auction",
   }
 };
 
@@ -74,7 +74,7 @@ export default function CricketMockAuctionPage() {
         "@type": "WebPage",
         "name": "Cricket Mock Auction Platform | Crexio",
         "description": "The ultimate Cricket Mock Auction Platform. Build your dream cricket team, manage your purse, and outbid opponents in our real-time simulator.",
-        "url": "https://crexio.app/cricket-mock-auction"
+        "url": "https://crexio-18.onrender.com/cricket-mock-auction"
       }} />
       <SEO schema={{
         "@context": "https://schema.org",
@@ -83,12 +83,12 @@ export default function CricketMockAuctionPage() {
           "@type": "ListItem",
           "position": 1,
           "name": "Home",
-          "item": "https://crexio.app/"
+          "item": "https://crexio-18.onrender.com/"
         },{
           "@type": "ListItem",
           "position": 2,
           "name": "Cricket Mock Auction Platform",
-          "item": "https://crexio.app/cricket-mock-auction"
+          "item": "https://crexio-18.onrender.com/cricket-mock-auction"
         }]
       }} />
     </main>

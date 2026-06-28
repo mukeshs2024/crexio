@@ -565,19 +565,19 @@ export default function LandingPage() {
         "@context": "https://schema.org",
         "@type": "WebSite",
         "name": "Crexio",
-        "url": "https://crexio.app",
+        "url": "https://crexio-18.onrender.com",
         "description": "India's Best IPL Mock Auction Platform",
         "publisher": {
           "@type": "Organization",
           "name": "Crexio",
           "logo": {
             "@type": "ImageObject",
-            "url": "https://crexio.app/favicon.ico"
+            "url": "https://crexio-18.onrender.com/favicon.ico"
           }
         },
         "potentialAction": {
           "@type": "SearchAction",
-          "target": "https://crexio.app/?q={search_term_string}",
+          "target": "https://crexio-18.onrender.com/?q={search_term_string}",
           "query-input": "required name=search_term_string"
         }
       }} />

@@ -3,7 +3,7 @@ import "./globals.css";
 import FeedbackWidget from "@/components/FeedbackWidget";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'https://crexio.app'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'https://crexio-18.onrender.com'),
   title: {
     default: "IPL Mock Auction Simulator & Auction Analytics | Crexio",
     template: "%s | Crexio"
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Crexio - IPL Mock Auction Simulator",
     description: "Experience the ultimate multiplayer IPL mock auction.",
-    url: "https://crexio.app",
+    url: "https://crexio-18.onrender.com",
     siteName: "Crexio",
     locale: "en_US",
     type: "website",

@@ -6,12 +6,12 @@ export const metadata: Metadata = {
   title: "IPL Auction Analytics",
   description: "Advanced IPL Auction Analytics and AI Team Ratings. Analyze your mock auction squad's batting, bowling, pace, and spin coverage with our proprietary engine.",
   alternates: {
-    canonical: "https://crexio.app/auction-analytics",
+    canonical: "https://crexio-18.onrender.com/auction-analytics",
   },
   openGraph: {
     title: "IPL Auction Analytics | Crexio",
     description: "Advanced IPL Auction Analytics and AI Team Ratings. Analyze your mock auction squad's batting, bowling, pace, and spin coverage with our proprietary engine.",
-    url: "https://crexio.app/auction-analytics",
+    url: "https://crexio-18.onrender.com/auction-analytics",
   }
 };
 
@@ -84,7 +84,7 @@ export default function AuctionAnalyticsPage() {
         "@type": "WebPage",
         "name": "IPL Auction Analytics | Crexio",
         "description": "Advanced IPL Auction Analytics and AI Team Ratings. Analyze your mock auction squad's batting, bowling, pace, and spin coverage with our proprietary engine.",
-        "url": "https://crexio.app/auction-analytics"
+        "url": "https://crexio-18.onrender.com/auction-analytics"
       }} />
       <SEO schema={{
         "@context": "https://schema.org",
@@ -93,12 +93,12 @@ export default function AuctionAnalyticsPage() {
           "@type": "ListItem",
           "position": 1,
           "name": "Home",
-          "item": "https://crexio.app/"
+          "item": "https://crexio-18.onrender.com/"
         },{
           "@type": "ListItem",
           "position": 2,
           "name": "IPL Auction Analytics",
-          "item": "https://crexio.app/auction-analytics"
+          "item": "https://crexio-18.onrender.com/auction-analytics"
         }]
       }} />
     </main>

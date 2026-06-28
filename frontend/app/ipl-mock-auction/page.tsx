@@ -6,12 +6,12 @@ export const metadata: Metadata = {
   title: "IPL Mock Auction Simulator",
   description: "Experience the ultimate IPL Mock Auction Simulator. Host private rooms, bid in real-time, build your squad, and evaluate your team against friends.",
   alternates: {
-    canonical: "https://crexio.app/ipl-mock-auction",
+    canonical: "https://crexio-18.onrender.com/ipl-mock-auction",
   },
   openGraph: {
     title: "IPL Mock Auction Simulator | Crexio",
     description: "Experience the ultimate IPL Mock Auction Simulator. Host private rooms, bid in real-time, build your squad, and evaluate your team against friends.",
-    url: "https://crexio.app/ipl-mock-auction",
+    url: "https://crexio-18.onrender.com/ipl-mock-auction",
   }
 };
 
@@ -76,7 +76,7 @@ export default function IplMockAuctionPage() {
         "@type": "WebPage",
         "name": "IPL Mock Auction Simulator | Crexio",
         "description": "Experience the ultimate IPL Mock Auction Simulator. Host private rooms, bid in real-time, build your squad, and evaluate your team against friends.",
-        "url": "https://crexio.app/ipl-mock-auction"
+        "url": "https://crexio-18.onrender.com/ipl-mock-auction"
       }} />
       <SEO schema={{
         "@context": "https://schema.org",
@@ -85,12 +85,12 @@ export default function IplMockAuctionPage() {
           "@type": "ListItem",
           "position": 1,
           "name": "Home",
-          "item": "https://crexio.app/"
+          "item": "https://crexio-18.onrender.com/"
         },{
           "@type": "ListItem",
           "position": 2,
           "name": "IPL Mock Auction Simulator",
-          "item": "https://crexio.app/ipl-mock-auction"
+          "item": "https://crexio-18.onrender.com/ipl-mock-auction"
         }]
       }} />
     </main>
