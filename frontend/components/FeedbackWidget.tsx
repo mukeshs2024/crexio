@@ -35,7 +35,8 @@ export default function FeedbackWidget() {
     
     try {
       const roomCode = params?.roomCode || null;
-      const apiUrl = (process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001").replace(/\/$/, "");
+      const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001";
+      const apiUrl = API_URL.replace(/\/$/, "");
       
       const res = await fetch(`${apiUrl}/api/feedback`, {
         method: "POST",

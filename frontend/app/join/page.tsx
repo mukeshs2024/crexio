@@ -59,7 +59,8 @@ export default function JoinPage() {
     const upperCode = code.toUpperCase().trim();
 
     try {
-      const res = await fetch(`${(process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001").replace(/\/$/, "")}/api/room/${upperCode}/exists`);
+      const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001";
+      const res = await fetch(`${API_URL.replace(/\/$/, "")}/api/room/${upperCode}/exists`);
       const { exists } = await res.json();
       if (!exists) {
         setError("Room not found. Check the code and try again.");

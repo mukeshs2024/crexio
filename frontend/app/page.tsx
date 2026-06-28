@@ -87,7 +87,8 @@ export default function LandingPage() {
   useEffect(() => {
     if (activeView === "public") {
       setLoadingPublic(true);
-      const apiUrl = (process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001").replace(/\/$/, "");
+      const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001";
+      const apiUrl = API_URL.replace(/\/$/, "");
       fetch(`${apiUrl}/api/public-rooms`)
         .then((res) => res.json())
         .then((data) => {

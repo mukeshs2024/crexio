@@ -9,7 +9,8 @@ let socket: Socket | null = null;
 
 export function getSocket(): Socket {
   if (!socket) {
-    socket = io((process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001").replace(/\/$/, ""), {
+    const SOCKET_URL = process.env.NEXT_PUBLIC_SOCKET_URL || "http://localhost:3001";
+    socket = io(SOCKET_URL.replace(/\/$/, ""), {
       autoConnect: false,
       reconnection: true,
       reconnectionDelay: 1000,

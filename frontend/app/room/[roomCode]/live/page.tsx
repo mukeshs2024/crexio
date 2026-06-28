@@ -53,7 +53,8 @@ export default function LivePage({ params }: { params: { roomCode: string } }) {
   const handleRunAnalytics = async () => {
     setIsAnalyticsRunning(true);
     try {
-      const apiUrl = (process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001").replace(/\/$/, "");
+      const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001";
+      const apiUrl = API_URL.replace(/\/$/, "");
       const res = await fetch(`${apiUrl}/api/analysis/${roomCode}/start`, { method: "POST" });
       if (!res.ok) {
         const data = await res.json();

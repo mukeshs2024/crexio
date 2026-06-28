@@ -52,7 +52,8 @@ export function useAuctionSocket(roomCode: string): UseAuctionSocketReturn {
   useEffect(() => {
     if (!roomCode || !sessionId) return;
 
-    const socket = io((process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001").replace(/\/$/, ""), {
+    const SOCKET_URL = process.env.NEXT_PUBLIC_SOCKET_URL || "http://localhost:3001";
+    const socket = io(SOCKET_URL.replace(/\/$/, ""), {
       autoConnect: true,
       reconnection: true,
       reconnectionDelay: 500,

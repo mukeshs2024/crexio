@@ -16,7 +16,8 @@ export default function ResultsPage() {
 
     const checkStatusAndFetch = async () => {
       try {
-        const apiUrl = (process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001").replace(/\/$/, "");
+        const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001";
+        const apiUrl = API_URL.replace(/\/$/, "");
         // First check status
         const statusRes = await fetch(`${apiUrl}/api/analysis/${roomId}/status`);
         const statusJson = await statusRes.json();

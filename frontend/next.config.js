@@ -4,7 +4,7 @@ const nextConfig = {
     return [
       {
         source: '/socket.io/:path*',
-        destination: `${(process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001').replace(/\/$/, "")}/socket.io/:path*`,
+        destination: `${(process.env.NEXT_PUBLIC_SOCKET_URL || 'http://localhost:3001').replace(/\/$/, "")}/socket.io/:path*`,
       },
     ];
   },

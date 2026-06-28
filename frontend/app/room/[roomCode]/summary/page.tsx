@@ -148,7 +148,8 @@ export default function SummaryPage({ params }: { params: { roomCode: string } }
   const handleRunAnalytics = async () => {
     setIsAnalyticsRunning(true);
     try {
-      const res = await fetch(`http://localhost:3001/api/analysis/${roomCode}/start`, { method: "POST" });
+      const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001";
+      const res = await fetch(`${API_URL.replace(/\/$/, "")}/api/analysis/${roomCode}/start`, { method: "POST" });
       if (!res.ok) {
         const data = await res.json();
         throw new Error(data.error || "Failed to start analysis");

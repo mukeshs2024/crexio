@@ -43,7 +43,8 @@ export default function CreatePage() {
     document.body.style.transition = "opacity 0.3s";
 
     try {
-      const res = await fetch(`${(process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001").replace(/\/$/, "")}/api/create-room`, {
+      const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001";
+      const res = await fetch(`${API_URL.replace(/\/$/, "")}/api/create-room`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
