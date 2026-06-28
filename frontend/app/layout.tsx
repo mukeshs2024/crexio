@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import FeedbackWidget from "@/components/FeedbackWidget";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'https://crexio-18.onrender.com'),
@@ -54,6 +55,7 @@ export default function RootLayout({
       <body className="bg-stadium-bg text-white font-body antialiased">
         {children}
         <FeedbackWidget />
+        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID!} />
       </body>
     </html>
   );
