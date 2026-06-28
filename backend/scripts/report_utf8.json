@@ -1,0 +1,273 @@
+﻿Γùç injected env (3) from ..\.env // tip: Γîÿ override existing { override: true }
+{
+  "report": {
+    "CSK": {
+      "squad": [
+        "Varun Raj Singh Bisht",
+        "Shiva Singh",
+        "Rishabh Chauhan",
+        "Srihari Nair",
+        "Shubham Kapse",
+        "Shreevatsha Acharya",
+        "Sadek Hussain"
+      ],
+      "teamStats": {
+        "batting": 18,
+        "bowling": 79,
+        "spin": 68,
+        "pace": 87,
+        "fielding": 84,
+        "captaincy": 90,
+        "overall": 57
+      }
+    },
+    "MI": {
+      "squad": [
+        "Parikshit Valsangkar",
+        "Mohamed Ali",
+        "Madhav Bajaj",
+        "Sabir Khan",
+        "Brijesh Sharma",
+        "Bayanda Majola",
+        "Aman Shekhawat"
+      ],
+      "teamStats": {
+        "batting": 39,
+        "bowling": 90,
+        "spin": 92,
+        "pace": 89,
+        "fielding": 84,
+        "captaincy": 90,
+        "overall": 69
+      }
+    },
+    "RCB": {
+      "squad": [
+        "Jack Edwards",
+        "Dian Forrester",
+        "Dhurmil Matkar",
+        "Aaqib Khan",
+        "Waseem Khanday",
+        "Rohit Yadav",
+        "Rajat Verma"
+      ],
+      "teamStats": {
+        "batting": 72,
+        "bowling": 87,
+        "spin": 80,
+        "pace": 91,
+        "fielding": 84,
+        "captaincy": 90,
+        "overall": 81
+      }
+    },
+    "KKR": {
+      "squad": [
+        "Akshu Bajwa",
+        "Sammar Gajjar",
+        "Ritik Tada",
+        "Nishanth Saranu",
+        "Manish Reddy",
+        "Deependra Singh",
+        "C.Rakshann Readdi"
+      ],
+      "teamStats": {
+        "batting": 94,
+        "bowling": 82,
+        "spin": 68,
+        "pace": 91,
+        "fielding": 84,
+        "captaincy": 90,
+        "overall": 88
+      }
+    },
+    "RR": {
+      "squad": [
+        "Prerit Dutta",
+        "Nasir Lone",
+        "Muhammed Sharafuddeen",
+        "Atif Mushtaq",
+        "Atal Rai",
+        "Wesley Agar",
+        "Obed McCoy"
+      ],
+      "teamStats": {
+        "batting": 55,
+        "bowling": 85,
+        "spin": 96,
+        "pace": 77,
+        "fielding": 84,
+        "captaincy": 90,
+        "overall": 74
+      }
+    },
+    "SRH": {
+      "squad": [
+        "Luckyrajsinh Vaghela",
+        "Krish Bhagat",
+        "K.Ajay Singh",
+        "Md Shoriful Islam",
+        "Joshua Little",
+        "Binura Fernando",
+        "Billy Stanlake"
+      ],
+      "teamStats": {
+        "batting": 44,
+        "bowling": 88,
+        "spin": 81,
+        "pace": 93,
+        "fielding": 84,
+        "captaincy": 90,
+        "overall": 70
+      }
+    },
+    "DC": {
+      "squad": [
+        "Ishan Mulchandani",
+        "Akhil Scaria",
+        "Vishal Mandwal",
+        "Yash Dicholkar",
+        "Traveen Mathew",
+        "Roshan Wagshare",
+        "Rakibul Hasan"
+      ],
+      "teamStats": {
+        "batting": 71,
+        "bowling": 93,
+        "spin": 88,
+        "pace": 96,
+        "fielding": 84,
+        "captaincy": 90,
+        "overall": 82
+      }
+    },
+    "GT": {
+      "squad": [
+        "Parth Vats",
+        "Nitin Sai Yadav",
+        "Mridul Surroch",
+        "Purav Agarwal",
+        "Naman Pushpak",
+        "Jikku Bright",
+        "Izaz Sawariya"
+      ],
+      "teamStats": {
+        "batting": 46,
+        "bowling": 74,
+        "spin": 68,
+        "pace": 78,
+        "fielding": 84,
+        "captaincy": 90,
+        "overall": 67
+      }
+    },
+    "PBKS": {
+      "squad": [
+        "Lalit Yadav",
+        "Hemang Patel",
+        "Daksh Kamra",
+        "Arab Gul",
+        "Sayed Irfan Aftab",
+        "Safvan Patel",
+        "Ravi Kumar"
+      ],
+      "teamStats": {
+        "batting": 67,
+        "bowling": 84,
+        "spin": 72,
+        "pace": 92,
+        "fielding": 84,
+        "captaincy": 90,
+        "overall": 78
+      }
+    },
+    "LSG": {
+      "squad": [
+        "Aryaman Singh Dhaliwal",
+        "Arfaz Mohammad",
+        "Anuj Thakral",
+        "Rajan Kumar",
+        "Praful Hinge",
+        "Pankaj Jaswal",
+        "Kulwant Khejroliya"
+      ],
+      "teamStats": {
+        "batting": 41,
+        "bowling": 70,
+        "spin": 73,
+        "pace": 68,
+        "fielding": 84,
+        "captaincy": 90,
+        "overall": 64
+      }
+    }
+  },
+  "simResult": {
+    "champion": "PBKS",
+    "standings": [
+      {
+        "teamCode": "PBKS",
+        "wins": 14,
+        "points": 325.877
+      },
+      {
+        "teamCode": "SRH",
+        "wins": 12,
+        "points": 315.05899999999997
+      },
+      {
+        "teamCode": "LSG",
+        "wins": 10,
+        "points": 308.06399999999996
+      },
+      {
+        "teamCode": "MI",
+        "wins": 8,
+        "points": 297.557
+      },
+      {
+        "teamCode": "RCB",
+        "wins": 6,
+        "points": 257.359
+      },
+      {
+        "teamCode": "RR",
+        "wins": 4,
+        "points": 245.442
+      },
+      {
+        "teamCode": "GT",
+        "wins": 2,
+        "points": 239.76
+      },
+      {
+        "teamCode": "KKR",
+        "wins": 0,
+        "points": 133.133
+      },
+      {
+        "teamCode": "DC",
+        "wins": 0,
+        "points": 125.426
+      },
+      {
+        "teamCode": "CSK",
+        "wins": 0,
+        "points": 116.667
+      }
+    ],
+    "logs": [
+      "Starting season simulation based on team analytical scores...",
+      "PBKS finished with 14 wins (Power: 325.88)",
+      "SRH finished with 12 wins (Power: 315.06)",
+      "LSG finished with 10 wins (Power: 308.06)",
+      "MI finished with 8 wins (Power: 297.56)",
+      "RCB finished with 6 wins (Power: 257.36)",
+      "RR finished with 4 wins (Power: 245.44)",
+      "GT finished with 2 wins (Power: 239.76)",
+      "KKR finished with 0 wins (Power: 133.13)",
+      "DC finished with 0 wins (Power: 125.43)",
+      "CSK finished with 0 wins (Power: 116.67)"
+    ]
+  }
+}

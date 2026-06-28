@@ -1,0 +1,21 @@
+CREATE TABLE IF NOT EXISTS player_ratings (
+  player_id TEXT PRIMARY KEY,
+  auction_name TEXT NOT NULL,
+  cricsheet_name TEXT,
+  role TEXT NOT NULL,
+  latest_team TEXT,
+  career_batting_score NUMERIC DEFAULT 0,
+  career_bowling_score NUMERIC DEFAULT 0,
+  recent_batting_score NUMERIC DEFAULT 0,
+  recent_bowling_score NUMERIC DEFAULT 0,
+  powerplay_score NUMERIC DEFAULT 0,
+  middle_overs_score NUMERIC DEFAULT 0,
+  death_overs_score NUMERIC DEFAULT 0,
+  experience_score NUMERIC DEFAULT 0,
+  consistency_score NUMERIC DEFAULT 0,
+  overall_score NUMERIC DEFAULT 0,
+  rating_confidence TEXT,
+  matches_considered INTEGER DEFAULT 0,
+  last_updated TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+  overall_grade TEXT
+);

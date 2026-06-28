@@ -1,0 +1,57 @@
+import type { Metadata } from "next";
+import "./globals.css";
+import FeedbackWidget from "@/components/FeedbackWidget";
+
+export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'https://crexio.app'),
+  title: {
+    default: "IPL Mock Auction Simulator & Auction Analytics | Crexio",
+    template: "%s | Crexio"
+  },
+  description: "Create and play realistic IPL Mock Auctions with friends. Build squads, analyze teams using AI-powered auction analytics, and experience the ultimate multiplayer IPL auction simulator.",
+  keywords: ["IPL Mock Auction", "IPL Auction Simulator", "Cricket Mock Auction", "IPL Auction Analytics", "IPL Auction Game", "Online IPL Auction"],
+  openGraph: {
+    title: "Crexio - IPL Mock Auction Simulator",
+    description: "Experience the ultimate multiplayer IPL mock auction.",
+    url: "https://crexio.app",
+    siteName: "Crexio",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Crexio - IPL Mock Auction Simulator",
+    description: "Experience the ultimate multiplayer IPL mock auction.",
+  },
+  icons: {
+    icon: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
+  },
+};
+
+export const viewport = {
+  themeColor: "#0066FF",
+};
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="en">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+      <body className="bg-stadium-bg text-white font-body antialiased">
+        {children}
+        <FeedbackWidget />
+      </body>
+    </html>
+  );
+}

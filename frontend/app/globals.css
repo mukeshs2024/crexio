@@ -1,0 +1,172 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   Neon Blue Sports-Tech Design System
+   ============================================================ */
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #000000;
+    color: #FFFFFF;
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Tabular figures for bid numbers and timers */
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum";
+  }
+}
+
+@layer components {
+  /* ── Glassmorphism panels ── */
+  .glass-panel {
+    background: #0E1528;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+  }
+
+  .glass-panel-light {
+    background: #0B0B0B;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+  }
+
+  /* ── Primary action button ── */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-semibold transition-all duration-200;
+    background: #0066FF;
+    color: #FFFFFF;
+    box-shadow: 0 4px 14px rgba(0, 102, 255, 0.25);
+  }
+  .btn-primary:hover:not(:disabled) {
+    background: #3B82F6;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(0, 102, 255, 0.35);
+  }
+  .btn-primary:active:not(:disabled) {
+    transform: translateY(0);
+  }
+  .btn-primary:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    box-shadow: none;
+  }
+
+  /* ── Secondary button ── */
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-semibold transition-all duration-200;
+    background: #050505;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #B8C0D4;
+  }
+  .btn-secondary:hover:not(:disabled) {
+    background: #080808;
+    border-color: #0066FF;
+    color: #FFFFFF;
+  }
+  .btn-secondary:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+
+  /* ── Danger button ── */
+  .btn-danger {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg font-semibold transition-all duration-200 text-sm;
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    color: #EF4444;
+  }
+  .btn-danger:hover:not(:disabled) {
+    background: rgba(239, 68, 68, 0.2);
+    border-color: #EF4444;
+  }
+
+  /* ── Bid button ── */
+  .btn-bid {
+    @apply w-full py-4 px-4 rounded-xl font-display font-bold text-xl transition-all duration-150;
+    background: #0066FF;
+    color: #FFFFFF;
+    box-shadow: 0 4px 20px rgba(0, 102, 255, 0.25);
+    letter-spacing: 0.5px;
+  }
+  .btn-bid:hover:not(:disabled) {
+    background: #3B82F6;
+    transform: scale(1.02);
+    box-shadow: 0 6px 28px rgba(0, 102, 255, 0.4);
+  }
+  .btn-bid:active:not(:disabled) {
+    transform: scale(0.98);
+  }
+  .btn-bid:disabled {
+    background: #0B0B0B;
+    color: #6B7280;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: none;
+    cursor: not-allowed;
+  }
+
+  /* ── Input ── */
+  .input-field {
+    @apply w-full px-4 py-3 rounded-lg text-white placeholder-gray-500 transition-all duration-200;
+    background: #050505;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    outline: none;
+  }
+  .input-field:focus {
+    border-color: #0066FF;
+    box-shadow: 0 0 0 2px rgba(0, 102, 255, 0.25);
+  }
+
+  /* ── Role badge ── */
+  .role-badge {
+    @apply inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold uppercase tracking-wide;
+  }
+  .role-batter   { background: rgba(59,130,246,0.1); color: #60a5fa; border: 1px solid rgba(59,130,246,0.2); }
+  .role-bowler   { background: rgba(239,68,68,0.1);  color: #f87171; border: 1px solid rgba(239,68,68,0.2); }
+  .role-allround { background: rgba(168,85,247,0.1); color: #c084fc; border: 1px solid rgba(168,85,247,0.2); }
+  .role-wk       { background: rgba(34,197,94,0.1);  color: #4ade80; border: 1px solid rgba(34,197,94,0.2); }
+
+  /* ── Marquee / Overseas badges ── */
+  .badge-marquee  { @apply inline-flex items-center px-2 py-0.5 rounded text-xs font-bold uppercase; background: rgba(0,102,255,0.1); color: #3B82F6; border: 1px solid rgba(0,102,255,0.2); }
+  .badge-overseas { @apply inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold uppercase; background: rgba(255,255,255,0.05); color: #B8C0D4; border: 1px solid rgba(255,255,255,0.1); }
+
+  /* ── Status dot ── */
+  .status-dot { @apply w-2 h-2 rounded-full; }
+  .status-live    { background: #22C55E; box-shadow: 0 0 6px rgba(34,197,94,0.5); }
+  .status-paused  { background: #F59E0B; }
+  .status-lobby   { background: #0066FF; }
+  .status-ended   { background: #6B7280; }
+
+  /* ── Scrollbar ── */
+  .custom-scroll::-webkit-scrollbar { width: 4px; }
+  .custom-scroll::-webkit-scrollbar-track { background: transparent; }
+  .custom-scroll::-webkit-scrollbar-thumb { background: #1E2D4A; border-radius: 2px; }
+  .custom-scroll::-webkit-scrollbar-thumb:hover { background: #3B82F6; }
+}
+
+@layer utilities {
+  .text-accent-blue  { color: #0066FF; }
+  .text-status-success { color: #22C55E; }
+  .text-status-danger { color: #EF4444; }
+  .text-muted      { color: #6B7280; }
+  .text-subtle     { color: #B8C0D4; }
+
+  .glow-accent  { box-shadow: 0 0 20px rgba(0, 102, 255, 0.25); }
+  .glow-success { box-shadow: 0 0 20px rgba(34, 197, 94, 0.25); }
+  .glow-danger  { box-shadow: 0 0 20px rgba(239, 68, 68, 0.25); }
+
+  .font-display { font-family: 'Barlow Condensed', sans-serif; }
+}
