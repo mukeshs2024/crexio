@@ -16,15 +16,15 @@ export default function LobbyPage({ params }: { params: { roomCode: string } }) 
   const router = useRouter();
   const [claimingTeam, setClaimingTeam] = useState<string | null>(null);
 
-  // Redirect to live when auction starts
+  // Redirect to live when auction starts, but only if they have a team or explicitly choose to view
   useEffect(() => {
-    if (roomState?.status === "live" || roomState?.status === "paused") {
+    if ((roomState?.status === "live" || roomState?.status === "paused") && myTeamCode) {
       router.push(`/room/${roomCode}/live`);
     }
     if (roomState?.status === "ended") {
       router.push(`/room/${roomCode}/summary`);
     }
-  }, [roomState?.status, roomCode, router]);
+  }, [roomState?.status, roomCode, router, myTeamCode]);
 
   useEffect(() => {
     if (lastRejection) {
@@ -138,6 +138,23 @@ export default function LobbyPage({ params }: { params: { roomCode: string } }) 
             </div>
             <button onClick={handleRelease} className="w-full sm:w-auto bg-[rgba(255,255,255,0.05)] hover:bg-[rgba(255,255,255,0.1)] border border-[rgba(255,255,255,0.1)] text-white font-bold py-3 px-6 rounded-xl transition-all text-sm">
               Release Team
+            </button>
+          </motion.div>
+        )}
+
+        {!myTeam && (roomState?.status === "live" || roomState?.status === "paused") && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="mb-8 p-5 rounded-2xl flex flex-col sm:flex-row items-center gap-5 backdrop-blur-md justify-between"
+            style={{ background: `rgba(255,255,255,0.05)`, border: `1px solid rgba(255,255,255,0.1)` }}
+          >
+            <div className="flex-1 text-center sm:text-left">
+              <div className="font-display text-2xl font-black text-white">Auction is Live!</div>
+              <div className="text-subtle text-sm mt-1">You can claim a team below, or enter as a viewer.</div>
+            </div>
+            <button onClick={() => router.push(`/room/${roomCode}/live`)} className="w-full sm:w-auto bg-[#0066FF] hover:bg-[#3B82F6] text-white font-bold py-3 px-6 rounded-xl transition-all text-sm shadow-[0_0_20px_rgba(0,102,255,0.4)]">
+              Enter Auction (Viewer)
             </button>
           </motion.div>
         )}

@@ -11,16 +11,11 @@ export default function FeedbackWidget() {
   const params = useParams();
 
   useEffect(() => {
-    // Check if feedback was already submitted
-    if (localStorage.getItem("crexio_feedback_submitted") === "true") {
-      setIsSubmitted(true);
-    }
-    
     // Listen for custom event to open feedback widget (e.g. from summary page)
     const handleOpenFeedback = () => {
-      if (localStorage.getItem("crexio_feedback_submitted") !== "true") {
-        setIsOpen(true);
-      }
+      setIsOpen(true);
+      setIsSubmitted(false);
+      setMessage("");
     };
     
     window.addEventListener("open_feedback_widget", handleOpenFeedback);
@@ -46,9 +41,14 @@ export default function FeedbackWidget() {
       
       if (res.ok) {
         setIsSubmitted(true);
-        localStorage.setItem("crexio_feedback_submitted", "true");
-        // Automatically close after showing thank you
-        setTimeout(() => setIsOpen(false), 3000);
+        // Automatically close after showing thank you, and reset form
+        setTimeout(() => {
+          setIsOpen(false);
+          setTimeout(() => {
+            setIsSubmitted(false);
+            setMessage("");
+          }, 300); // Wait for close animation
+        }, 3000);
       } else {
         alert("Failed to submit feedback. Please try again.");
       }

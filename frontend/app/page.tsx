@@ -218,9 +218,11 @@ export default function LandingPage() {
                     className="relative w-[200px] sm:w-[250px] md:w-[400px] aspect-[3/4]"
                   >
                     <Image 
-                      src="/trophy.png" 
+                      src="/trophy.webp" 
                       alt="Championship Trophy" 
-                      fill 
+                      width={450}
+                      height={650}
+                      loading="eager"
                       priority
                       className="object-contain drop-shadow-[0_0_40px_rgba(0,102,255,0.4)]" 
                     />

@@ -131,7 +131,7 @@ export default function ResultsPage() {
               <div className="w-full bg-[#0A0A0A] border border-[#0066FF] rounded-t-3xl p-8 text-center shadow-[0_-10px_40px_rgba(0,102,255,0.2)] relative overflow-hidden">
                 <div className="absolute top-0 left-0 w-full h-full bg-[linear-gradient(135deg,rgba(0,102,255,0.1)_0%,transparent_100%)] pointer-events-none" />
                 <div className="absolute top-4 right-4 w-12 h-12">
-                  <Image src="/trophy.png" alt="Trophy" fill className="object-contain drop-shadow-[0_0_10px_rgba(242,183,5,0.6)]" />
+                  <Image src="/trophy.webp" alt="Trophy" fill className="object-contain drop-shadow-[0_0_10px_rgba(242,183,5,0.6)]" />
                 </div>
                 <div className="text-6xl mb-4 drop-shadow-[0_0_15px_rgba(242,183,5,0.6)]">🏆</div>
                 <div className="text-xs uppercase tracking-widest font-black text-amber-bid mb-2">Champion Prediction</div>

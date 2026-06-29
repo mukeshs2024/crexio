@@ -45,8 +45,8 @@ module.exports = {
         },
       },
       fontFamily: {
-        display: ['Barlow Condensed', 'sans-serif'],
-        body: ['Inter', 'sans-serif'],
+        display: ['var(--font-barlow-condensed)', 'sans-serif'],
+        body: ['var(--font-inter)', 'sans-serif'],
       },
       animation: {
         'fade-in': 'fadeIn 0.2s ease-in',
