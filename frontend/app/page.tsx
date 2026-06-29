@@ -542,14 +542,15 @@ export default function LandingPage() {
             <ul className="space-y-4 text-[#B8C0D4]">
               <li><Link href="/#how-it-works" className="hover:text-[#0066FF] transition-colors">How It Works</Link></li>
               <li><Link href="/#faq" className="hover:text-[#0066FF] transition-colors">FAQ</Link></li>
-              <li><Link href="/contact" className="hover:text-[#0066FF] transition-colors">Contact</Link></li>
+              <li><Link href="/about" className="hover:text-[#0066FF] transition-colors">About</Link></li>
+              <li><a href="mailto:vprlks20@gmail.com" className="hover:text-[#0066FF] transition-colors">Contact: vprlks20@gmail.com</a></li>
             </ul>
           </div>
           <div>
             <h3 className="font-bold text-white mb-6 tracking-widest uppercase text-xs">Legal</h3>
             <ul className="space-y-4 text-[#B8C0D4]">
-              <li><Link href="/privacy" className="hover:text-[#0066FF] transition-colors">Privacy Policy</Link></li>
-              <li><Link href="/terms" className="hover:text-[#0066FF] transition-colors">Terms of Service</Link></li>
+              <li><Link href="/privacy-policy" className="hover:text-[#0066FF] transition-colors">Privacy Policy</Link></li>
+              <li><Link href="/terms-and-conditions" className="hover:text-[#0066FF] transition-colors">Terms and Conditions</Link></li>
               <li className="flex gap-4 pt-2">
                 <a href="#" className="hover:text-[#0066FF] transition-colors">GitHub</a>
                 <a href="#" className="hover:text-[#0066FF] transition-colors">LinkedIn</a>
