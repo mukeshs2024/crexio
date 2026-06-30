@@ -5,6 +5,7 @@ import Image from "next/image";
 import { motion, AnimatePresence, useInView, useAnimation, useIsPresent } from "framer-motion";
 import { useAuctionHistory } from "@/lib/use-auction-history";
 import SEO from "@/components/SEO";
+import AdBanner from "@/components/AdBanner";
 
 function formatTimeAgo(timestamp: number): string {
   const diff = Date.now() - timestamp;
@@ -124,8 +125,12 @@ export default function LandingPage() {
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-        className="relative z-10 w-full max-w-5xl mx-auto px-6 flex flex-col items-center"
+        className="relative z-10 w-full max-w-5xl mx-auto px-6 flex flex-col items-center pt-8"
       >
+        <div className="w-full mb-8">
+          <AdBanner />
+        </div>
+        
         {/* Hero Section */}
         <div className="text-center mb-16 w-full max-w-3xl">
           <motion.div
