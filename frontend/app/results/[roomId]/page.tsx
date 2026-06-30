@@ -198,8 +198,9 @@ export default function ResultsPage() {
                   </div>
                 </div>
                 <div className="text-left md:text-right">
-                  <div className="text-xs uppercase tracking-widest font-black text-muted mb-1">Role Coverage Summary</div>
-                  <div className="text-lg font-bold text-[#0066FF] mb-2">Data-Driven</div>
+                  <div className="text-xs uppercase tracking-widest font-black text-muted mb-1">Squad Coverage Summary</div>
+                  <div className="text-lg font-bold text-[#0066FF] mb-1">Total Picked: {activeTeamReport?.squadSize || 0}</div>
+                  <div className="text-sm font-bold text-[#0066FF] mb-2">Data-Driven</div>
                 </div>
               </div>
 
@@ -267,7 +268,7 @@ export default function ResultsPage() {
                   )}
 
                   <div className="mb-8">
-                    <h4 className="text-[#0066FF] font-black uppercase tracking-widest text-xs mb-3">Role Coverage</h4>
+                    <h4 className="text-[#0066FF] font-black uppercase tracking-widest text-xs mb-3">Role Coverage (Entire Squad)</h4>
                     <div className="flex flex-wrap gap-2">
                       {activeTeamReport?.roleCoverage ? Object.entries(activeTeamReport.roleCoverage).map(([role, count]: any) => (
                         <span key={role} className="text-xs bg-[#111111] text-white/80 border border-[rgba(255,255,255,0.1)] px-2 py-1 rounded-md">{role}: {count}</span>

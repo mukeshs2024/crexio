@@ -12,6 +12,8 @@ interface PlayerSpotlightProps {
   teams: Record<string, Team>;
   soldAnimation: boolean;
   lastSoldPlayer: Player | null;
+  unsoldAnimation: boolean;
+  lastUnsoldPlayer: Player | null;
   timerEndsAt: number | null;
   timerDurationSeconds: number;
   isPaused: boolean;
@@ -25,6 +27,8 @@ function PlayerSpotlightComponent({
   teams,
   soldAnimation,
   lastSoldPlayer,
+  unsoldAnimation,
+  lastUnsoldPlayer,
   timerEndsAt,
   timerDurationSeconds,
   isPaused,
@@ -79,6 +83,65 @@ function PlayerSpotlightComponent({
     osc.start();
     osc.stop(ctx.currentTime + 0.3);
   };
+
+  const playSoldSound = () => {
+    if (!audioCtxRef.current || !isSoundEnabled) return;
+    const ctx = audioCtxRef.current;
+    if (ctx.state === 'suspended') ctx.resume();
+    const playNote = (freq: number, startTime: number) => {
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'triangle';
+      osc.frequency.value = freq;
+      gain.gain.setValueAtTime(0, startTime);
+      gain.gain.linearRampToValueAtTime(0.3, startTime + 0.1);
+      gain.gain.exponentialRampToValueAtTime(0.01, startTime + 0.5);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start(startTime);
+      osc.stop(startTime + 0.5);
+    };
+    const now = ctx.currentTime;
+    playNote(523.25, now); // C5
+    playNote(659.25, now + 0.1); // E5
+    playNote(783.99, now + 0.2); // G5
+    playNote(1046.50, now + 0.3); // C6
+  };
+
+  const playUnsoldSound = () => {
+    if (!audioCtxRef.current || !isSoundEnabled) return;
+    const ctx = audioCtxRef.current;
+    if (ctx.state === 'suspended') ctx.resume();
+    const osc = ctx.createOscillator();
+    const gainNode = ctx.createGain();
+    osc.type = 'sawtooth';
+    osc.frequency.setValueAtTime(150, ctx.currentTime);
+    osc.frequency.linearRampToValueAtTime(100, ctx.currentTime + 0.5);
+    gainNode.gain.setValueAtTime(0, ctx.currentTime);
+    gainNode.gain.linearRampToValueAtTime(0.3, ctx.currentTime + 0.1);
+    gainNode.gain.linearRampToValueAtTime(0, ctx.currentTime + 0.5);
+    osc.connect(gainNode);
+    gainNode.connect(ctx.destination);
+    osc.start();
+    osc.stop(ctx.currentTime + 0.5);
+  };
+
+  const prevSoldAnimation = useRef(false);
+  const prevUnsoldAnimation = useRef(false);
+
+  useEffect(() => {
+    if (soldAnimation && !prevSoldAnimation.current) {
+      playSoldSound();
+    }
+    prevSoldAnimation.current = soldAnimation;
+  }, [soldAnimation]);
+
+  useEffect(() => {
+    if (unsoldAnimation && !prevUnsoldAnimation.current) {
+      playUnsoldSound();
+    }
+    prevUnsoldAnimation.current = unsoldAnimation;
+  }, [unsoldAnimation]);
 
   useEffect(() => {
     if (!timerEndsAt || isPaused) return;
@@ -151,26 +214,47 @@ function PlayerSpotlightComponent({
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 1.05 }}
             transition={{ duration: 0.25 }}
-            className="w-full rounded-xl p-4 flex items-center justify-between shadow-xl"
+            className="w-full rounded-xl p-4 flex items-center justify-between shadow-[0_0_30px_rgba(34,197,94,0.3)] relative overflow-hidden"
             style={{ background: "rgba(34, 197, 94, 0.15)", border: "1px solid rgba(34, 197, 94, 0.5)" }}
           >
-            <div>
+            {/* Quick particle/glow background effect for celebration */}
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(34,197,94,0.4)_0%,transparent_70%)] pointer-events-none mix-blend-screen" />
+            <div className="absolute -inset-1 bg-gradient-to-r from-transparent via-[#22C55E] to-transparent opacity-30 animate-[pulse_1.5s_ease-in-out_infinite] pointer-events-none blur-sm" />
+            
+            <div className="relative z-10">
               <div className="text-white font-bold text-lg mb-1">{lastSoldPlayer.name}</div>
               <div className="flex items-center gap-2">
-                <span className="font-bold px-2 py-0.5 rounded text-[10px] bg-[#22C55E] text-white">SOLD</span>
+                <span className="font-black px-2 py-0.5 rounded text-[10px] bg-[#22C55E] text-white tracking-widest shadow-[0_0_10px_rgba(34,197,94,0.8)]">SOLD</span>
                 {lastSoldPlayer.soldTo && (
-                  <span className="text-xs text-status-success">to {teams[lastSoldPlayer.soldTo]?.name}</span>
+                  <span className="text-xs text-status-success font-bold drop-shadow-[0_0_5px_rgba(34,197,94,0.5)]">to {teams[lastSoldPlayer.soldTo]?.name}</span>
                 )}
               </div>
             </div>
             {lastSoldPlayer.soldTo && (
-              <div className="flex items-center gap-3 text-right">
-                <div className="font-display text-3xl font-black text-status-success tabular-nums">
+              <div className="flex items-center gap-3 text-right relative z-10">
+                <div className="font-display text-3xl font-black text-status-success tabular-nums drop-shadow-[0_0_10px_rgba(34,197,94,0.8)]">
                   {formatLakhs(lastSoldPlayer.soldPrice!)}
                 </div>
                 <TeamBadgeSVG team={teams[lastSoldPlayer.soldTo]} size="md" />
               </div>
             )}
+          </motion.div>
+        ) : unsoldAnimation && lastUnsoldPlayer ? (
+          <motion.div
+            key="unsold"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 1.05 }}
+            transition={{ duration: 0.25 }}
+            className="w-full rounded-xl p-4 flex items-center justify-between shadow-xl relative overflow-hidden grayscale"
+            style={{ background: "rgba(239, 68, 68, 0.15)", border: "1px solid rgba(239, 68, 68, 0.5)" }}
+          >
+            <div className="relative z-10">
+              <div className="text-white font-bold text-lg mb-1 opacity-80">{lastUnsoldPlayer.name}</div>
+              <div className="flex items-center gap-2">
+                <span className="font-bold px-2 py-0.5 rounded text-[10px] bg-[#EF4444] text-white">UNSOLD</span>
+              </div>
+            </div>
           </motion.div>
         ) : player ? (
           <motion.div
@@ -271,6 +355,8 @@ export default memo(PlayerSpotlightComponent, (prev, next) => {
     prev.currentBidderTeam === next.currentBidderTeam &&
     prev.soldAnimation === next.soldAnimation &&
     prev.lastSoldPlayer?.id === next.lastSoldPlayer?.id &&
+    prev.unsoldAnimation === next.unsoldAnimation &&
+    prev.lastUnsoldPlayer?.id === next.lastUnsoldPlayer?.id &&
     prev.timerEndsAt === next.timerEndsAt &&
     prev.timerDurationSeconds === next.timerDurationSeconds &&
     prev.isPaused === next.isPaused &&

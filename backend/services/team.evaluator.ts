@@ -17,6 +17,7 @@ export interface TeamAnalytics {
   weaknesses: string[];
   isInvalid: boolean;
   errors: string[];
+  squadSize?: number;
 }
 
 export function evaluateTeam(players: PlayerAnalytics[]): TeamAnalytics {
@@ -68,7 +69,7 @@ export function evaluateTeam(players: PlayerAnalytics[]): TeamAnalytics {
     'Wicket-Keeper': 0
   };
   
-  playingXI.forEach(p => {
+  players.forEach(p => {
     const role = p.metadata?.role || 'Unknown';
     if (roleCoverage[role] !== undefined) {
       roleCoverage[role]++;
@@ -106,6 +107,7 @@ export function evaluateTeam(players: PlayerAnalytics[]): TeamAnalytics {
     strengths,
     weaknesses,
     isInvalid: errors.length > 0,
-    errors
+    errors,
+    squadSize: players.length
   };
 }

@@ -100,6 +100,26 @@ export default function LivePage({ params }: { params: { roomCode: string } }) {
     prevSoldCountRef.current = newSoldCount;
   }, [roomState?.soldPlayers.length]);
 
+  // Track previous player for UNSOLD animation
+  const [unsoldAnimation, setUnsoldAnimation] = useState(false);
+  const [lastUnsoldPlayer, setLastUnsoldPlayer] = useState<Player | null>(null);
+  const prevUnsoldCountRef = useRef(0);
+
+  // Detect when a player gets unsold
+  useEffect(() => {
+    if (!roomState) return;
+    const newUnsoldCount = roomState.unsoldPlayers.length;
+    if (newUnsoldCount > prevUnsoldCountRef.current) {
+      const justUnsold = roomState.unsoldPlayers[newUnsoldCount - 1];
+      setLastUnsoldPlayer(justUnsold);
+      setUnsoldAnimation(true);
+      const t = setTimeout(() => setUnsoldAnimation(false), 2500);
+      prevUnsoldCountRef.current = newUnsoldCount;
+      return () => clearTimeout(t);
+    }
+    prevUnsoldCountRef.current = newUnsoldCount;
+  }, [roomState?.unsoldPlayers.length]);
+
   // Update local history
   useEffect(() => {
     if (roomState?.status && roomCode) {
@@ -256,6 +276,8 @@ export default function LivePage({ params }: { params: { roomCode: string } }) {
               teams={roomState.teams}
               soldAnimation={soldAnimation}
               lastSoldPlayer={lastSoldPlayer}
+              unsoldAnimation={unsoldAnimation}
+              lastUnsoldPlayer={lastUnsoldPlayer}
               timerEndsAt={roomState.timerEndsAt}
               timerDurationSeconds={roomState.timerDurationSeconds}
               isPaused={isPaused}

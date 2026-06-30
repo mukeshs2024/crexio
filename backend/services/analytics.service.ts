@@ -75,10 +75,12 @@ export class AnalyticsService {
         // Normalize role
         if (!result.metadata) result.metadata = {};
         let role = p.role || result.metadata.role || result.metadata.Role || 'Unknown';
-        if (role.toLowerCase().includes('keep')) role = 'Wicket-Keeper';
-        else if (role.toLowerCase().includes('bat')) role = 'Batsman';
-        else if (role.toLowerCase().includes('bowl')) role = 'Bowler';
-        else if (role.toLowerCase().includes('all')) role = 'All-Rounder';
+        if (typeof role === 'string') {
+          if (role.toLowerCase().includes('keep')) role = 'Wicket-Keeper';
+          else if (role.toLowerCase().includes('bat')) role = 'Batsman';
+          else if (role.toLowerCase().includes('bowl')) role = 'Bowler';
+          else if (role.toLowerCase().includes('all')) role = 'All-Rounder';
+        }
         result.metadata.role = role;
         
         results.push(result);

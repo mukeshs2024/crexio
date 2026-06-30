@@ -49,31 +49,19 @@ export function setupAnalyticsRoutes(app: Express, rooms: Map<string, RoomActor>
           actor.emitToRoom("analytics_progress", { teamCode: team.code });
           
           const buildPlayers = [];
-          for (const p of playingXII.playingXI) {
-            const squadPlayer = team.squad.find(s => s.id === p.playerId);
+          for (const squadPlayer of team.squad) {
             if (squadPlayer?.name) {
+              const inPlayingXI = playingXII.playingXI.find(p => p.playerId === squadPlayer.id);
+              const isImpact = playingXII.impactPlayerId === squadPlayer.id;
+
               buildPlayers.push({
                 name: squadPlayer.name,
                 role: squadPlayer.role,
-                isCaptain: p.captain,
-                isViceCaptain: p.viceCaptain,
-                isWicketKeeper: p.wicketkeeper,
-                isPlayingXI: true,
-                isImpact: false
-              });
-            }
-          }
-          if (playingXII.impactPlayerId) {
-            const squadPlayer = team.squad.find(s => s.id === playingXII.impactPlayerId);
-            if (squadPlayer?.name) {
-              buildPlayers.push({
-                name: squadPlayer.name,
-                role: squadPlayer.role,
-                isCaptain: false,
-                isViceCaptain: false,
-                isWicketKeeper: false,
-                isPlayingXI: false,
-                isImpact: true
+                isCaptain: inPlayingXI?.captain || false,
+                isViceCaptain: inPlayingXI?.viceCaptain || false,
+                isWicketKeeper: inPlayingXI?.wicketkeeper || false,
+                isPlayingXI: !!inPlayingXI,
+                isImpact: isImpact
               });
             }
           }
@@ -107,7 +95,8 @@ export function setupAnalyticsRoutes(app: Express, rooms: Map<string, RoomActor>
           result.reportCards[ta.teamCode] = { 
             ...teamStats, 
             players: ta.players,
-            ownerName: team?.ownerName || "Auto"
+            ownerName: team?.ownerName || "Auto",
+            squadSize: team?.squad.length || 0
           };
           result.teamStrengths[ta.teamCode] = teamStats;
         }
