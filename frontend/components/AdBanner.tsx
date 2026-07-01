@@ -12,7 +12,7 @@ export default function AdBanner() {
   }, []);
 
   return (
-    <div className="w-full text-center my-4 overflow-hidden flex justify-center">
+    <div className="w-full text-center my-4 overflow-hidden flex justify-center min-h-[100px]">
       {/* Homepage Top Banner */}
       <ins
         className="adsbygoogle"

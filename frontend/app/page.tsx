@@ -185,7 +185,7 @@ export default function LandingPage() {
         </div>
 
         {/* Actions / History Container */}
-        <div className="w-full min-h-[200px] flex items-center justify-center">
+        <div className="w-full min-h-[600px] flex items-start justify-center pt-4">
           <AnimatePresence mode="wait">
             {activeView === "actions" ? (
               <motion.div
