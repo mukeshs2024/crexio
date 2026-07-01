@@ -8,15 +8,27 @@ export default function HowIplMockAuctionsWorkPost() {
     <BlogLayout slug="how-ipl-mock-auctions-work">
       {/* Introduction */}
       <p>
-        The Indian Premier League (IPL) auction is one of the most highly anticipated events in the global cricketing calendar. Every year, millions of fans tune in to watch franchise owners bid astronomical sums of money for the world's best T20 talent. It's a high-stakes game of poker mixed with deep sports analytics. But what if you didn't have to just watch? What if you could experience the thrill of the gavel falling yourself? That is exactly where IPL mock auctions come in.
+        The <a href="https://www.iplt20.com" target="_blank" rel="noopener noreferrer">Indian Premier League (IPL)</a> auction is one of the most highly anticipated events in the global cricketing calendar. Every year, millions of fans tune in to watch franchise owners bid astronomical sums of money for the world's best T20 talent. It's a high-stakes game of poker mixed with deep sports analytics. But what if you didn't have to just watch? What if you could experience the thrill of the gavel falling yourself? That is exactly where IPL mock auctions come in.
       </p>
       
       <p>
         An IPL mock auction is a simulated event where fans, fantasy cricket managers, and analysts gather—either physically or virtually—to replicate the real-world auction process. Whether you are using it to draft players for your private fantasy league or simply competing against friends for bragging rights, understanding how these mock auctions work is the first step to dominating them.
       </p>
 
+      {/* Table of Contents */}
+      <div className="bg-[#10B981]/5 border border-[#10B981]/20 p-6 rounded-2xl mb-10">
+        <h3 className="text-xl font-bold text-white mb-4 uppercase tracking-wider">Table of Contents</h3>
+        <ul className="list-decimal pl-5 space-y-2 text-[#10B981] font-semibold">
+          <li><a href="#challenge" className="hover:underline">The Challenge of Building a Winning Team</a></li>
+          <li><a href="#simulation" className="hover:underline">How The Simulation Actually Works</a></li>
+          <li><a href="#scenarios" className="hover:underline">Real-World Scenarios</a></li>
+          <li><a href="#interface" className="hover:underline">The Interface in Action</a></li>
+          <li><a href="#tips" className="hover:underline">Top Tips for Beginners</a></li>
+        </ul>
+      </div>
+
       {/* Problem */}
-      <h2>The Challenge of Building a Winning Team</h2>
+      <h2 id="challenge">The Challenge of Building a Winning Team</h2>
       <p>
         Many cricket fans believe that if given a massive purse, they could easily build an unbeatable team. The reality is far more complicated. When you sit down at the virtual auction table, you are suddenly faced with intense pressure. You have a finite budget, strict rules regarding team composition (like the maximum number of overseas players), and nine other competitors actively trying to outbid you for the same players.
       </p>
@@ -26,7 +38,7 @@ export default function HowIplMockAuctionsWorkPost() {
       </p>
 
       {/* Explanation */}
-      <h2>How The Simulation Actually Works</h2>
+      <h2 id="simulation">How The Simulation Actually Works</h2>
       <p>
         Modern online platforms, like our <Link href="/ipl-auction-simulator">IPL Auction Simulator</Link>, have automated the complex logistics of hosting these events. Here is a step-by-step breakdown of how a typical online mock auction flows:
       </p>
@@ -53,7 +65,7 @@ export default function HowIplMockAuctionsWorkPost() {
       </ol>
 
       {/* Examples */}
-      <h2>Real-World Scenarios</h2>
+      <h2 id="scenarios">Real-World Scenarios</h2>
       <p>
         Let's look at a practical example of how the mechanics play out during a live simulation. Imagine you are participating in a 10-team mock auction, and the very first player out of the bag is a premier fast-bowling all-rounder with a base price of 2 Crores.
       </p>
@@ -63,7 +75,7 @@ export default function HowIplMockAuctionsWorkPost() {
       </p>
 
       {/* Screenshots */}
-      <h2>The Interface in Action</h2>
+      <h2 id="interface">The Interface in Action</h2>
       <div className="my-12 rounded-2xl overflow-hidden border border-[rgba(255,255,255,0.1)] shadow-2xl">
         <Image 
           src="/platform-screenshot.png" 
@@ -76,7 +88,7 @@ export default function HowIplMockAuctionsWorkPost() {
       </div>
 
       {/* Tips */}
-      <h2>Top Tips for Beginners</h2>
+      <h2 id="tips">Top Tips for Beginners</h2>
       <p>
         If this is your first time participating in an IPL mock auction, the speed of the event can be overwhelming. Keep these foundational tips in mind:
       </p>

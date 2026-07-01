@@ -44,8 +44,9 @@ export default function IplMockAuctionPage() {
             Hosting a mock auction shouldn't require complex spreadsheets or manual calculations. Our simulator handles everything from purse management to real-time bidding using ultra-low latency WebSocket connections.
           </p>
           <ul className="list-disc pl-6 space-y-2">
+            <li><strong>Host in Seconds:</strong> No signup required. Launch a room instantly and invite competitors.</li>
             <li><strong>Real-Time Multiplayer:</strong> Connect with up to 9 other friends in a private room.</li>
-            <li><strong>Accurate Player Database:</strong> Bid on hundreds of real-world players with up-to-date stats and roles.</li>
+            <li><strong>AI-Based Player Values:</strong> Bid on hundreds of real-world capped and uncapped players with up-to-date stats.</li>
             <li><strong>Automated Purse Tracking:</strong> Never worry about overspending; our engine calculates remaining budgets instantly.</li>
           </ul>
 

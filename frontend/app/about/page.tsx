@@ -35,21 +35,41 @@ export default function AboutPage() {
           <p>
             Our platform was built by passionate cricket fans who wanted to bring the high-stakes environment of franchise drafting directly to your screen. Whether you are a casual fan preparing for your fantasy league or an aspiring analyst looking to test your strategies, Crexio provides an authentic, real-time multiplayer simulation that mirrors the intensity of a real mega auction.
           </p>
+          
+          <h2 className="text-3xl font-display font-black text-white mt-12 mb-6 uppercase tracking-tight">Our Expertise</h2>
+          <p>
+            The Crexio team comprises seasoned fantasy sports analysts, data scientists, and full-stack engineers. We have spent years analyzing IPL mega auction dynamics, retention rules, and player valuation algorithms. This deep domain expertise allows us to provide the most realistic mock auction simulator on the internet. We continuously update our player databases and AI-based base prices to reflect real-world performances and market trends.
+          </p>
+
+          <h2 className="text-3xl font-display font-black text-white mt-12 mb-6 uppercase tracking-tight">Our Mission</h2>
           <p>
             We are dedicated to providing a fair, transparent, and completely free-to-play environment. There are no paywalls for our core auction features. Our mission is to foster a vibrant community of cricket lovers who can come together, debate player valuations, and enjoy the competitive spirit of the game.
           </p>
-          <p>
-            Have a question, feedback, or a feature request? We would love to hear from you. Feel free to contact us at <a href="mailto:vprlks20@gmail.com" className="text-[#10B981] hover:underline">vprlks20@gmail.com</a>.
-          </p>
+
+          <div className="mt-12 p-8 bg-[#050505] border border-[rgba(255,255,255,0.05)] rounded-2xl">
+            <h3 className="text-2xl font-bold text-white mb-4">Contact Information</h3>
+            <p>
+              Have a question, feedback, or a feature request? We would love to hear from you.
+            </p>
+            <ul className="mt-4 space-y-2">
+              <li><strong>Email:</strong> <a href="mailto:vprlks20@gmail.com" className="text-[#10B981] hover:underline">vprlks20@gmail.com</a></li>
+              <li><strong>Location:</strong> India</li>
+            </ul>
+          </div>
         </div>
       </div>
       
       <SEO schema={{
         "@context": "https://schema.org",
-        "@type": "AboutPage",
-        "name": "About Crexio",
-        "description": "Learn more about Crexio, the ultimate IPL Mock Auction Simulator.",
-        "url": "https://crexio-18.onrender.com/about"
+        "@type": ["AboutPage", "Organization"],
+        "name": "Crexio",
+        "description": "The ultimate IPL Mock Auction Simulator built by fantasy sports experts.",
+        "url": "https://crexio-18.onrender.com/about",
+        "email": "vprlks20@gmail.com",
+        "sameAs": [
+          "https://crexio-18.onrender.com"
+        ],
+        "knowsAbout": ["Cricket Analytics", "Fantasy Sports Drafting", "IPL Auction Strategy"]
       }} />
     </main>
   );

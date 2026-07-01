@@ -25,6 +25,9 @@ export const metadata: Metadata = {
     default: "IPL Mock Auction Simulator & Auction Analytics | Crexio",
     template: "%s | Crexio"
   },
+  alternates: {
+    canonical: "/",
+  },
   description: "Create and play realistic IPL Mock Auctions with friends. Build squads, analyze teams using AI-powered auction analytics, and experience the ultimate multiplayer IPL auction simulator.",
   keywords: ["IPL Mock Auction", "IPL Auction Simulator", "Cricket Mock Auction", "IPL Auction Analytics", "IPL Auction Game", "Online IPL Auction"],
   openGraph: {
@@ -51,7 +54,12 @@ export const metadata: Metadata = {
 
 export const viewport = {
   themeColor: "#0066FF",
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
 };
+
+import Footer from "@/components/Footer";
 
 export default function RootLayout({
   children,
@@ -66,6 +74,7 @@ export default function RootLayout({
       </head>
       <body className={`${barlowCondensed.variable} ${inter.variable} bg-stadium-bg text-white font-body antialiased`}>
         {children}
+        <Footer />
         <FeedbackWidget />
         <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID!} />
         <Script id="microsoft-clarity" strategy="lazyOnload">

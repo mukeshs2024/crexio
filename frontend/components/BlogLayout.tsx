@@ -16,15 +16,17 @@ export default function BlogLayout({ slug, children }: BlogLayoutProps) {
     return <div className="text-white p-20">Post not found.</div>;
   }
 
-  const articleSchema = {
+    const articleSchema = {
     "@context": "https://schema.org",
     "@type": "Article",
     "headline": post.title,
     "description": post.description,
     "datePublished": post.date,
+    "dateModified": post.updatedAt || post.date,
+    "image": post.image ? `https://crexio-18.onrender.com${post.image}` : "https://crexio-18.onrender.com/platform-screenshot.png",
     "author": [{
       "@type": "Organization",
-      "name": "Crexio",
+      "name": post.author,
       "url": "https://crexio-18.onrender.com"
     }],
     "publisher": {
@@ -52,21 +54,44 @@ export default function BlogLayout({ slug, children }: BlogLayoutProps) {
         </div>
         
         <header className="mb-12">
-          <div className="flex items-center gap-4 mb-6">
+          <div className="flex flex-wrap items-center gap-4 mb-6">
             <span className="px-3 py-1 bg-[#10B981]/10 text-[#10B981] text-xs font-bold uppercase tracking-wider rounded-full border border-[#10B981]/20">
               {post.category}
             </span>
             <span className="text-sm text-[#B8C0D4]">
               {new Date(post.date).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}
             </span>
+            {post.updatedAt && (
+              <span className="text-sm text-[#B8C0D4] italic">
+                (Updated: {new Date(post.updatedAt).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })})
+              </span>
+            )}
+            <span className="text-sm text-[#10B981] font-bold">
+              • {post.readingTime}
+            </span>
           </div>
           <h1 className="font-display text-4xl md:text-6xl font-black leading-[1.1] tracking-tight text-white mb-6">
             {post.title}
           </h1>
+          <Link href="/author/crexio-team" className="flex items-center gap-3 mb-6 border-b border-[rgba(255,255,255,0.05)] pb-6 hover:opacity-80 transition-opacity">
+             <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#10B981] to-[#059669] flex items-center justify-center font-bold text-white text-lg">
+                C
+             </div>
+             <div>
+                <p className="font-bold text-sm text-white hover:text-[#10B981] transition-colors">{post.author}</p>
+                <p className="text-xs text-[#B8C0D4]">Editor at Crexio</p>
+             </div>
+          </Link>
           <p className="text-xl text-[#B8C0D4] leading-relaxed max-w-3xl">
             {post.description}
           </p>
+          {post.image && (
+            <div className="mt-8 rounded-2xl overflow-hidden border border-[rgba(255,255,255,0.1)] shadow-2xl">
+              <img src={post.image} alt={post.title} className="w-full h-auto object-cover" />
+            </div>
+          )}
         </header>
+
 
         <div className="prose prose-invert prose-lg max-w-none prose-a:text-[#10B981] hover:prose-a:text-[#059669] prose-headings:font-display prose-headings:font-black prose-headings:uppercase prose-headings:tracking-tight prose-h2:text-3xl prose-h2:mt-16 prose-h2:mb-6 prose-p:text-[#B8C0D4] prose-p:leading-relaxed prose-li:text-[#B8C0D4]">
           {children}

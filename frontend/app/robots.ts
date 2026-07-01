@@ -5,7 +5,7 @@ export default function robots(): MetadataRoute.Robots {
   return {
     rules: {
       userAgent: '*',
-      allow: ['/', '/ipl-mock-auction', '/cricket-mock-auction', '/auction-analytics'],
+      allow: '/',
       disallow: ['/room/', '/results/', '/api/'],
     },
     sitemap: `${baseUrl}/sitemap.xml`,

@@ -155,25 +155,39 @@ export default function LandingPage() {
           <p className="text-[#B8C0D4] text-lg md:text-2xl font-medium tracking-wide">
             Build Your Squad. <span className="text-white">Outbid Your Rivals.</span> Dominate The Auction.
           </p>
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-4 md:gap-8 text-xs md:text-sm font-bold text-[#10B981] uppercase tracking-wider">
+            <span className="flex items-center gap-1"><span className="text-lg">✓</span> No Signup Required</span>
+            <span className="flex items-center gap-1"><span className="text-lg">✓</span> 100% Free</span>
+            <span className="flex items-center gap-1"><span className="text-lg">✓</span> Real-Time Multiplayer</span>
+          </div>
         </div>
 
         {/* View Toggles */}
-        <div className="flex justify-center gap-3 mb-6 w-full flex-wrap">
+        <div className="flex justify-center gap-3 mb-6 w-full flex-wrap" role="tablist" aria-label="View selection">
           <button 
+            role="tab"
+            aria-selected={activeView === "actions"}
+            aria-controls="actions-panel"
             onClick={() => setActiveView("actions")}
-            className={`px-8 py-3 rounded-full font-bold text-sm transition-all duration-300 ${activeView === "actions" ? "bg-[#0066FF] text-white shadow-[0_0_20px_rgba(0,102,255,0.3)]" : "bg-[#050505] border border-[rgba(255,255,255,0.1)] text-[#6B7280] hover:text-white"}`}
+            className={`px-8 py-4 rounded-full font-bold text-sm transition-all duration-300 ${activeView === "actions" ? "bg-[#0066FF] text-white shadow-[0_0_20px_rgba(0,102,255,0.3)]" : "bg-[#050505] border border-[rgba(255,255,255,0.1)] text-[#6B7280] hover:text-white"}`}
           >
             Enter Arena
           </button>
           <button 
+            role="tab"
+            aria-selected={activeView === "public"}
+            aria-controls="public-panel"
             onClick={() => setActiveView("public")}
-            className={`px-8 py-3 rounded-full font-bold text-sm transition-all duration-300 ${activeView === "public" ? "bg-[#0066FF] text-white shadow-[0_0_20px_rgba(0,102,255,0.3)]" : "bg-[#050505] border border-[rgba(255,255,255,0.1)] text-[#6B7280] hover:text-white"}`}
+            className={`px-8 py-4 rounded-full font-bold text-sm transition-all duration-300 ${activeView === "public" ? "bg-[#0066FF] text-white shadow-[0_0_20px_rgba(0,102,255,0.3)]" : "bg-[#050505] border border-[rgba(255,255,255,0.1)] text-[#6B7280] hover:text-white"}`}
           >
             🌐 Public Rooms
           </button>
           <button 
+            role="tab"
+            aria-selected={activeView === "history"}
+            aria-controls="history-panel"
             onClick={() => setActiveView("history")}
-            className={`px-8 py-3 rounded-full font-bold text-sm transition-all duration-300 flex items-center gap-2 ${activeView === "history" ? "bg-[#0066FF] text-white shadow-[0_0_20px_rgba(0,102,255,0.3)]" : "bg-[#050505] border border-[rgba(255,255,255,0.1)] text-[#6B7280] hover:text-white"}`}
+            className={`px-8 py-4 rounded-full font-bold text-sm transition-all duration-300 flex items-center gap-2 ${activeView === "history" ? "bg-[#0066FF] text-white shadow-[0_0_20px_rgba(0,102,255,0.3)]" : "bg-[#050505] border border-[rgba(255,255,255,0.1)] text-[#6B7280] hover:text-white"}`}
           >
             Auction History
             {history.length > 0 && (
@@ -195,6 +209,9 @@ export default function LandingPage() {
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.2 }}
                 className="flex flex-col items-center w-full"
+                id="actions-panel"
+                role="tabpanel"
+                aria-label="Actions View"
               >
                 <div className="flex flex-col sm:flex-row gap-5 justify-center w-full max-w-2xl mb-2 md:mb-4">
                   <Link href="/create" className="w-full sm:w-1/2 group">
@@ -242,6 +259,9 @@ export default function LandingPage() {
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.2 }}
                 className="w-full max-w-2xl text-left bg-[#080808] border border-[rgba(255,255,255,0.08)] p-2 rounded-2xl shadow-2xl"
+                id="public-panel"
+                role="tabpanel"
+                aria-label="Public Rooms View"
               >
                 {loadingPublic ? (
                   <div className="p-12 text-center">
@@ -289,6 +309,9 @@ export default function LandingPage() {
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.2 }}
                 className="w-full max-w-2xl text-left bg-[#080808] border border-[rgba(255,255,255,0.08)] p-2 rounded-2xl shadow-2xl"
+                id="history-panel"
+                role="tabpanel"
+                aria-label="Auction History View"
               >
                 {history.length === 0 ? (
                   <div className="p-12 text-center">
@@ -526,48 +549,6 @@ export default function LandingPage() {
         </section>
       </div>
 
-      {/* Footer */}
-      <footer className="w-full border-t border-[rgba(255,255,255,0.05)] bg-[#050505] py-16 px-6">
-        <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-sm">
-          <div className="col-span-2 md:col-span-1">
-            <h3 className="font-black text-white mb-4 text-xl tracking-widest uppercase">CREXIO</h3>
-            <p className="text-[#B8C0D4] leading-relaxed">The premier mock auction platform for cricket enthusiasts. Build, bid, and dominate.</p>
-          </div>
-          <div>
-            <h3 className="font-bold text-white mb-6 tracking-widest uppercase text-xs">Product</h3>
-            <ul className="space-y-4 text-[#B8C0D4]">
-              <li><Link href="/ipl-mock-auction" className="hover:text-[#0066FF] transition-colors">IPL Mock Auction</Link></li>
-              <li><Link href="/cricket-mock-auction" className="hover:text-[#0066FF] transition-colors">Cricket Mock Auction</Link></li>
-              <li><Link href="/auction-analytics" className="hover:text-[#0066FF] transition-colors">Auction Analytics</Link></li>
-              <li><Link href="/#features" className="hover:text-[#0066FF] transition-colors">Features</Link></li>
-            </ul>
-          </div>
-          <div>
-            <h3 className="font-bold text-white mb-6 tracking-widest uppercase text-xs">Resources</h3>
-            <ul className="space-y-4 text-[#B8C0D4]">
-              <li><Link href="/#how-it-works" className="hover:text-[#0066FF] transition-colors">How It Works</Link></li>
-              <li><Link href="/#faq" className="hover:text-[#0066FF] transition-colors">FAQ</Link></li>
-              <li><Link href="/about" className="hover:text-[#0066FF] transition-colors">About</Link></li>
-              <li><a href="mailto:vprlks20@gmail.com" className="hover:text-[#0066FF] transition-colors">Contact: vprlks20@gmail.com</a></li>
-            </ul>
-          </div>
-          <div>
-            <h3 className="font-bold text-white mb-6 tracking-widest uppercase text-xs">Legal</h3>
-            <ul className="space-y-4 text-[#B8C0D4]">
-              <li><Link href="/privacy-policy" className="hover:text-[#0066FF] transition-colors">Privacy Policy</Link></li>
-              <li><Link href="/terms-and-conditions" className="hover:text-[#0066FF] transition-colors">Terms and Conditions</Link></li>
-              <li className="flex gap-4 pt-2">
-                <a href="#" className="hover:text-[#0066FF] transition-colors">GitHub</a>
-                <a href="#" className="hover:text-[#0066FF] transition-colors">LinkedIn</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div className="max-w-5xl mx-auto mt-16 pt-8 border-t border-[rgba(255,255,255,0.05)] text-center text-[#B8C0D4] text-xs flex flex-col md:flex-row justify-between items-center gap-4">
-          <p>© 2026 Crexio. All rights reserved.</p>
-          <p className="opacity-50">Not affiliated with the BCCI or IPL.</p>
-        </div>
-      </footer>
 
       <SEO schema={{
         "@context": "https://schema.org",
